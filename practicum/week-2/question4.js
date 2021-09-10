@@ -27,13 +27,5 @@ var howManyCommon = function(A, B) {
 */
 
 var howManyCommon = function(A, B) {
-  let letters = 0;
-  for (let i = 0; i < A.length; i++) {
-    for (let j = 0; j < B.length; j++) {
-      if (A[i] == B[j]) {
-        letters++;
-        }
-    }
-  }
-  return letters;
+
 };
