@@ -26,6 +26,8 @@ var howManyCommon = function(A, B) {
 
 */
 
+/*
 var howManyCommon = function(A, B) {
 
 };
+*/
