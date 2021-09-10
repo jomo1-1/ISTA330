@@ -30,9 +30,8 @@ var howManyCommon = function(A, B) {
   for (let i = 0, j = 0; i < A.length && j < B.length; i++, j++) {
       if (A[i] == B[j]) {
         letters++;
-      } else {
-        return;
       }
     }
+  }
   return letters;
 };
