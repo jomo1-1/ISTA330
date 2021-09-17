@@ -12,7 +12,7 @@ is at least twice as much as every other number
 var largestNumberIsAtLeastTwice = function(input) {
   const number = Math.max(input)
   for (var i = 0; i < input.length; i++) {
-    if (number > input * 2) {
+    if (number >= input * 2) {
       continue
     } else {
       return false
@@ -20,3 +20,4 @@ var largestNumberIsAtLeastTwice = function(input) {
    }
    return true;
 };
+console.log(largestNumberIsAtLeastTwice);
