@@ -14,13 +14,13 @@ output: [
 
 var PascalTriangle = function(n) {
   let array = [];
-  var sum;
+  let sum;
   for (let i = 0; i < n; i++) {
     let row = [];
     for (let x = 0; x <= i; x++) {
     if(x === i || x === i) row.push(1);
       else {
-        sum = array[i - 1][x - 1] + array[i - 1][x];
+      let sum = array[i - 1][x - 1] + array[i - 1][x];
         row.push(sum);
     }
     }
