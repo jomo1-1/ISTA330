@@ -20,4 +20,3 @@ var largestNumberIsAtLeastTwice = function(input) {
    }
    return true;
 };
-console.log(largestNumberIsAtLeastTwice);
