@@ -14,7 +14,7 @@ output: [
 
 var PascalTriangle = function(n) {
   let array = [];
-  let sum;
+  // let sum;
   for (let i = 0; i < n; i++) {
     let row = [];
     for (let x = 0; x <= i; x++) {
