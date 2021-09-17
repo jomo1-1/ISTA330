@@ -16,6 +16,6 @@ Example: input: [-12,3,-1,5,-2,1,-7]
    for (let i = 0; i < input.length; i++) {
      sum = Math.max(0, (sum + i));
      largestSum = Math.max(largestSum, sum);
-   }
+   };
    return largestSum;
  };
