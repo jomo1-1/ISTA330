@@ -21,7 +21,7 @@ var PascalTriangle = function(n) {
     if(x === i || x === i) row.push(1);
       else {
         sum = array[i - 1][x - 1] + array[i - 1][x];
-        row[i].push(sum);
+        row.push(sum);
     }
     }
   }
