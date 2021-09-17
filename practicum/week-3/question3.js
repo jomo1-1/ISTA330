@@ -24,6 +24,7 @@ var PascalTriangle = function(n) {
         row.push(sum);
     }
     }
+    array.push(row);
   }
   return array;
 };
