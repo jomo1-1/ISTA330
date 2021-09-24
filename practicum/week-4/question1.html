@@ -51,6 +51,50 @@
              rose,
              waterlily
        ];
+
+       function display() {
+         let flowersDiv = document.querySelector("#flowersDiv");
+         document.getElementById('flowersDiv').style = 'overflow-x:auto;';
+         //document.querySelector('meta').setAttribute("content", "width=device-width, initial-scale=1.0");
+
+         let table = document.createElement("table");
+         table.className = "t";
+         let tBody = document.createElement("tbody");
+         let tRow = document.createElement("tr");
+
+         for (var i = 0; i < flowers.length; i++) {
+           let flower = flowers[i];
+
+           let children = tRow.children;
+           if (children.length === 4) {
+             tBody.appendChild(tRow);
+             tRow = document.createElement("tr");
+           }
+           let td = document.createElement("td");
+           td.innerHTML = `<img src="${flower.picture}" class="responsive"></img> <br> ${flower.name}`;
+           tRow.appendChild(td);
+
+         };
+
+         tBody.appendChild(tRow);
+
+         table.appendChild(tBody);
+         flowersDiv.appendChild(table);
+         //document.getElementsByClassName('.responsive').style.width = '100%';
+         //document.getElementsByClassName('.responsive').style.height = 'auto';
+
+         let elems = document.getElementsByClassName("responsive");
+
+         for (var i = 0; i < elems.length; i++)
+         elems[i].style.height = "auto";
+
+         let elems2 = document.getElementsByClassName("responsive")
+         for (var i = 0; i < elems2.length; i++)
+         elems2[i].style.width = "100%";
+
+       };
+       display();
+
     </script>
 </body>
 </html>
