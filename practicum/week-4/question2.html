@@ -61,7 +61,7 @@
         /*
            1. Display the flowers as per question 1.
            2. Add the following functionality to the page:
-              When users click on an image, the images should be 
+              When users click on an image, the images should be
               reorganized using the following rule:
               The flowers that has been clicked goes to the first position in
               the first row. The next position in the first row will
@@ -72,8 +72,8 @@
               then the flowers should be rearranged as:
 
          lily       rose           sunflower   tulip
-        waterlily   cherryblossom  daffodil    daisy 
-        
+        waterlily   cherryblossom  daffodil    daisy
+
         */
         class Flower {
             constructor(name, pictureName) {
@@ -91,15 +91,98 @@
         let waterlily = new Flower('Water lily', 'https://habahram.blob.core.windows.net/flowers/waterlily.jpg');
 
         let flowers = [
-            daffodil,
-            cherryblossom,
-            lily,
-            daisy,
-            sunflower,
-            tulip,
-            rose,
-            waterlily
-        ];
+           daffodil,
+           cherryblossom,
+           lily,
+           daisy,
+           sunflower,
+           tulip,
+           rose,
+           waterlily,
+         ];
+
+        function display() {
+          let flowersDiv = document.querySelector("#flowersDiv");
+          document.getElementById('flowersDiv').style = 'overflow-x:auto;';
+          //document.querySelector('meta').setAttribute("content", "width=device-width, initial-scale=1.0");
+
+          let table = document.createElement("table");
+          table.className = "t";
+          let tBody = document.createElement("tbody");
+          let tRow = document.createElement("tr");
+
+
+          for (var i = 0; i < flowers.length; i++) {
+            let flower = flowers[i];
+
+            let children = tRow.children;
+            if (children.length === 4) {
+              tBody.appendChild(tRow);
+              tRow = document.createElement("tr");
+            }
+            let td = document.createElement("td");
+            td.innerHTML = `<img src="${flower.picture}" class="responsive"></img> <br> ${flower.name}`;
+            tRow.appendChild(td);
+
+          };
+
+          tBody.appendChild(tRow);
+
+          table.appendChild(tBody);
+          flowersDiv.appendChild(table);
+          //document.getElementsByClassName('.responsive').style.width = '100%';
+          //document.getElementsByClassName('.responsive').style.height = 'auto';
+
+          let elems = document.getElementsByClassName("responsive");
+
+          for (var i = 0; i < elems.length; i++)
+          elems[i].style.height = "auto";
+
+          let elems2 = document.getElementsByClassName("responsive")
+          for (var i = 0; i < elems2.length; i++)
+          elems2[i].style.width = "100%";
+
+        };
+        display();
+
+
+
+
+
+
+        const container = document.getElementById("flowersDiv");
+        flowers.sort();
+
+
+        function PlaceFlowers(flowers) {
+          container.innerHTML = "";
+
+           for(let flower of flowers) {
+            flowersDiv.innerHTML += `<img id="${flower.name}" src="${flower.picture}" onClick='sortFlowers(event)' class="responsive">${flower.name}</a>`;
+         }
+       }
+
+        PlaceFlowers(flowers);
+
+        function sortFlowers(event) {
+          let el = event.target.id;
+          let indOfEl = flowers.indexOf(el);
+          PlaceFlowers([...flowers.slice(indOfEl), ...flowers.slice(0, indOfEl)]);
+
+        }
+
+
+/*
+        function sortImg() {
+          let imgClick = document.getElementsByClassName('responsive');
+          for (var i = 0; i < imgClick.length; i++){
+          imgClick[i].addEventListener = ("click", function(){ console.log("Hello World!"); });
+        }
+}
+
+      sortImg();
+*/
+
     </script>
 </body>
 
